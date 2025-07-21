@@ -212,16 +212,7 @@ useEffect(() => {
     }
   };
 
-  const goUp = () => {
-    if (!currentPath) return;
-    electronAPI.parentFolder(currentPath).then(parent => {
-      if (!parent || parent === '') {
-        listFolder('');
-      } else {
-        listFolder(parent);
-      }
-    });
-  };
+
 
   // Set winner message when cat is found
   useEffect(() => {
