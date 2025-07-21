@@ -1,0 +1,68 @@
+{
+  "name": "catch-the-cat",
+  "version": "1.0.0",
+  "description": "A playful desktop game built with Electron and React.",
+  "main": "main.js",
+  "scripts": {
+    "start": "concurrently \"npm run react-start\" \"npm run electron\"",
+    "react-start": "set BROWSER=none && react-scripts start",
+    "electron": "wait-on http://localhost:3000 && electron .",
+    "build": "react-scripts build",
+    "dist": "npm run build && electron-builder --win --x64"
+  },
+  "dependencies": {
+    "howler": "^2.2.3",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0",
+    "electron-packager": "^17.1.2",
+    "react-scripts": "^5.0.1",
+    "wait-on": "^7.0.1",
+    "electron": "^29.0.0",
+    "electron-builder": "^24.6.0"
+  },
+  "build": {
+    "appId": "com.example.catchthecat",
+    "productName": "Catch the Cat",
+    "extends": null,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "main.js",
+      "preload.js",
+      "package.json",
+      "public/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "public/logo.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Catch the Cat"
+    }
+  },
+  "author": "",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,269 @@
+
+.noImagesBox {
+  margin: 32px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.noImagesText {
+  color: #ffb300;
+  font-size: 20px;
+  margin-bottom: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+/* Header row for path (left) and timer (right) */
+.headerRow {
+  width: 85vw;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  margin-bottom: 8px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+/* Root container */
+.root {
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  overflow-x: hidden;
+  height: 100vh;
+  font-family: 'Comic Neue', cursive, sans-serif;
+}
+
+.title {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.timer {
+  color: #ffb300;
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.startBtn {
+  font-size: 22px;
+  padding: 12px 36px;
+  border-radius: 10px;
+  border: none;
+  background: #ffb300;
+  color: #222;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.path {
+  color: #fff;
+  font-size: 16px;
+}
+
+
+.homeBtn, .howToBtn {
+    font-size: 14px;
+    background: #444;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
+.homeBtn:hover, .howToBtn:hover {
+    background: #666;
+}
+.folderGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 24px;
+  margin-top: 8px;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+  /* Remove horizontal padding to avoid overflow */
+  padding: 0;
+}
+
+.folderItem {
+  text-align: center;
+  cursor: pointer;
+}
+
+.folderIcon {
+  font-size: 48px;
+}
+
+.folderName {
+  color: #4fc3f7;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 80vw;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.imageItem {
+  text-align: center;
+}
+
+.catImg {
+  width: 80px;
+  height: 80px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px #0006;
+  background: #222;
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+/* Emphasis effect for cat image after found (persistent, not on hover) */
+.catImgHover {
+  transform: scale(1.1) rotate(-16deg);
+  box-shadow: 0 0 0 8px #fffbe6, 0 8px 48px 8px #ffb300cc, 0 1px 12px #000a;
+  filter: brightness(1.5) saturate(2.5) drop-shadow(0 0 16px #ffb300);
+  cursor: pointer;
+  z-index: 10;
+  outline: 3px solid #ffb300;
+}
+
+.thumbImg {
+  width: 80px;
+  height: 80px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px #0006;
+  background: #222;
+}
+
+.brokenImg {
+    margin: auto;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 32px;
+}
+
+.loadingImg {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+  border-radius: 8px;
+  color: #888;
+  font-size: 28px;
+}
+
+.imgName {
+  color: #fff;
+  font-size: 12px;
+  margin-top: 4px;
+  word-break: break-all;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.foundCatBox {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  animation: winnerCardPop 0.7s cubic-bezier(0.23, 1.12, 0.32, 1) both;
+}
+
+@keyframes winnerCardPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(40px) rotate(-8deg);
+    filter: blur(6px) brightness(1.5);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08) translateY(-8px) rotate(2deg);
+    filter: blur(0.5px) brightness(1.1);
+  }
+  80% {
+    transform: scale(0.98) translateY(2px) rotate(-1deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotate(0deg);
+    filter: none;
+  }
+}
+
+.foundCatImg {
+  width: 180px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #0008;
+}
+
+.foundCatText {
+  color: #fff;
+  font-size: 22px;
+  margin-top: 12px;
+}
+
+.playAgainBtn {
+  margin-top: 18px;
+  font-size: 18px;
+  padding: 8px 28px;
+  border-radius: 8px;
+  border: none;
+  background: #ffb300;
+  color: #222;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Custom ultra-tiny/hidden scrollbar for game theme */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 8px;
+  min-height: 16px;
+  border: none;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffd54f33;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+* {
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+}
