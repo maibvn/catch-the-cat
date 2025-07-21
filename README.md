@@ -55,7 +55,7 @@ A cozy and curious desktop game where you explore your own folders to find a hid
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/maibuivn/catch-the-cat.git
+git clone https://github.com/maibvn/catch-the-cat.git
 cd catch-the-cat
 npm install
 npm run dev
