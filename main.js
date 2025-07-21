@@ -71,17 +71,8 @@ ipcMain.handle("hide-cat-file", async (event, folderName, filename) => {
     if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath, { recursive: true });
     }
-    // Find cat.png in public (React dev: public/cat.png, prod: resources/app/public/cat.png)
-    let publicCatPath = path.join(__dirname, "public", "cat.png");
-    if (!fs.existsSync(publicCatPath)) {
-      // Try one level up (for packaged apps)
-      publicCatPath = path.join(
-        process.resourcesPath || "",
-        "app",
-        "public",
-        "cat.png"
-      );
-    }
+    // Always use build/cat.png (all public assets are copied to build/ by postbuild)
+    const publicCatPath = path.join(__dirname, "build", "cat.png");
     const catPath = path.join(folderPath, filename);
     fs.copyFileSync(publicCatPath, catPath);
     return { catPath };
@@ -145,7 +136,14 @@ function createWindow() {
     backgroundColor: "#222",
   });
   win.once("ready-to-show", () => win.show());
-  win.loadURL("http://localhost:3000"); // React dev server
+  if (!app.isPackaged) {
+    win.loadURL("http://localhost:3000"); // React dev server
+  } else {
+    const indexPath = path.join(__dirname, "build", "index.html");
+    win.loadFile(indexPath).catch((err) => {
+      console.error("Failed to load index.html:", indexPath, err);
+    });
+  }
 }
 
 app.whenReady().then(createWindow);
