@@ -31,11 +31,11 @@
       "output": "dist"
     },
     "files": [
+      "build",
       "build/**/*",
       "main.js",
       "preload.js",
-      "package.json",
-      "public/**/*"
+      "package.json"
     ],
     "win": {
       "target": [
@@ -53,6 +53,7 @@
     }
   },
   "author": "",
+  "homepage": ".",
   "browserslist": {
     "production": [
       ">0.2%",
