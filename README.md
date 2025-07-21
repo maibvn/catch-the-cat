@@ -31,26 +31,11 @@ A cozy and curious desktop game where you explore your own folders to find a hid
 - Never uploads or tracks anything
 - You can delete the cat image any time
 
-## 🔧 Tech Stack
-
-## 🐾 Features
-
-- Interactive gallery UI (shows only images)
-- Hidden cat image in a random main folder
-- Timer: see how fast you can find the cat!
-- Secure Electron IPC: no Node.js modules in the renderer, all file/folder access via IPC
-- Uses async/await for all Electron API calls for reliability
-- Fully self-contained — doesn’t modify or access private data
-- Fun, relaxing, and safe!
-
-## 🚀 Getting Started
-
-## 🔧 Tech Stack
+## Tech Stack
 
 - [Electron](https://electronjs.org/) (with secure preload and IPC)
 - [React](https://react.dev/)
 - [Node.js fs module](https://nodejs.org/api/fs.html)
-  npm run dev
 
 ## 🚀 Getting Started
 
@@ -61,13 +46,20 @@ npm install
 npm run dev
 ```
 
+## 📦 Building & Running Electron
+
+```bash
+npm run build
+npx electron .
+```
+
 ## 📦 Building
 
 ```bash
 npm run build
 ```
 
-## � Exporting as Windows EXE
+## 🪟 Exporting as Windows EXE
 
 1. Build the React app (see above).
 2. Install Electron Packager (if not already):
